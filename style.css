@@ -1,0 +1,53 @@
+body {
+  font-family: 'Shojumaru', cursive;
+  max-width: 960px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #6C7A71;
+}
+
+header {
+  text-align: center;
+  font-size: 50px;
+  color: black;
+  border: 10px solid black;
+  padding: 25px 0;
+  background-color: #cccccc;
+}
+
+.board {
+  width: 10px;
+  height: 100px;
+  float: left;
+  border: 3px solid orange;
+}
+.clear {
+  clear: both;
+}
+
+/*body {
+  font-family: 'Shojumaru', cursive;
+  max-width: 960px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #6C7A71;
+}
+
+
+
+.joke {
+  text-align: center;
+}
+div div {
+  float: left;
+  border: 3px solid #6C7A71;
+  width: 120px;
+  height:120px;
+  background-color: #cccccc;
+  font-size: 15pt;
+}
+
+  .row{
+    clear: both;
+}
+
