@@ -7,20 +7,20 @@
   <script src="tic_script.js"></script>
    <link href='http://fonts.googleapis.com/css?family=Shojumaru' rel='stylesheet' type='text/css'>
 </head>
-
-
 <body x-ng-controller="GameController">
-
-<header>Tic Tac Toe</header> <br />
-
-  <div class="clear" x-ng-repeat="x in rows track by $index">
-
-    <div class="board" x-ng-repeat="col in x track by $index"
-       x-ng-click="playerTurn($parent.$index, $index);">
-
-      {{ ((col == 1)?"O" : ( col == -1 ? "X" : "") ) }}
+<header>Tic Tac <span class="strikeout">Toe</span> Chuck Norris</header> <br />
+<!--   <div class="outer"> -->
+    <div class="clear" x-ng-repeat="x in rows track by $index">
+      <div class="board" x-ng-repeat="col in x track by $index"
+         x-ng-click="playerTurn($parent.$index, $index);">
+<!-- ternary operator: condition(col == 1) then if value is true "O" else value if false "X"-->
+        {{ ((col == 1)?"O" : (col == -1 ? "X" : "")) }}
+      </div>
     </div>
-  </div>
+<!--   </div> -->
+  <div>
+  <button onclick="clickFunction()">Click to Reset Game</button>
+</div>
 
 </body>
 </html>

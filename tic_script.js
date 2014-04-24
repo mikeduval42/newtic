@@ -12,14 +12,16 @@ $scope.rows = [[0,0,0],[0,0,0],[0,0,0]];
     if($scope.rows[r][c] === 0) {
       clicks++;
       console.log(clicks);
+      // O
       if(turn === true){
-        $scope.rows[r][c] = 1;  // O
+        $scope.rows[r][c] = 1;
         value = 1;
         turn = false;
     }
+    // X
       else
       {
-        $scope.rows[r][c] = -1; // X
+        $scope.rows[r][c] = -1;
         value = -1;
         turn = true;
       }
@@ -54,7 +56,6 @@ $scope.rows = [[0,0,0],[0,0,0],[0,0,0]];
       {$scope.playerWon($scope.rows[0][2]);
        win = true;}
     if (clicks === 9 && !win)
-
         alert("Cats Game Sucka!");
         //draw = true;
       //}
@@ -66,6 +67,7 @@ $scope.rows = [[0,0,0],[0,0,0],[0,0,0]];
     //   //alert("Cats Game Sucka!");
     // }
     // else {
+    // condition player === 1 value if true("O") : value if false ("X")
     alert( ((player === 1)?"O" : "X") + " won! ");
 
   };

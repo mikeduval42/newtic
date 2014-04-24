@@ -3,18 +3,25 @@ body {
   max-width: 960px;
   width: 100%;
   margin: 0 auto;
-  background-color: #6C7A71;
+/*  background-color: #6C7A71;*/
 }
 
 header {
   text-align: center;
   font-size: 50px;
   color: black;
-  border: 10px solid black;
   padding: 25px 0;
-  background-color: #cccccc;
+/*  background-color: #cccccc;*/
 }
-
+.strikeout {
+  text-decoration: line-through;
+}
+.outer {
+/*width: 50%;*/
+}
+.clear {
+  clear: both;
+}
 .board {
   width: 100px;
   height: 100px;
@@ -22,11 +29,17 @@ header {
   border: 5px solid #6C7A71;
   background-color: black;
   color: white;
+  font-size: 80px;
+  text-align: center;
 }
-.clear {
-  clear: both;
+.board:hover {
+  opacity: .8;
 }
 
+button {
+  height: 50px;
+  width: 330px;
+}
 /*body {
   font-family: 'Shojumaru', cursive;
   max-width: 960px;
