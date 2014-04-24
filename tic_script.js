@@ -27,7 +27,7 @@ $scope.rows = [[0,0,0],[0,0,0],[0,0,0]];
       }
     }
     else {
-      alert("pick another one dummie");
+      alert("Pick Another One or Chuck Norris Will Roundhouse Kick You");
       }
 
     // Win possibilities

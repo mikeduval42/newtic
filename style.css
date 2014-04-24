@@ -16,9 +16,6 @@ header {
 .strikeout {
   text-decoration: line-through;
 }
-.outer {
-/*width: 50%;*/
-}
 .clear {
   clear: both;
 }
