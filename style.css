@@ -16,10 +16,12 @@ header {
 }
 
 .board {
-  width: 10px;
+  width: 100px;
   height: 100px;
   float: left;
-  border: 3px solid orange;
+  border: 5px solid #6C7A71;
+  background-color: black;
+  color: white;
 }
 .clear {
   clear: both;

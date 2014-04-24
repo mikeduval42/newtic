@@ -9,16 +9,17 @@
 </head>
 
 
-<body x-ng-controller="GameController" x-ng-init="rows = [[0,0,0],[0,0,0],[0,0,0]]">
+<body x-ng-controller="GameController">
 
-<header>tic tac toe</header>
+<header>Tic Tac Toe</header> <br />
 
   <div class="clear" x-ng-repeat="x in rows track by $index">
 
-  <div class="board" x-ng-repeat="col in x track by $index"
-     x-ng-click="playerTurn($parent.$index, $index);">
+    <div class="board" x-ng-repeat="col in x track by $index"
+       x-ng-click="playerTurn($parent.$index, $index);">
 
-    {{ ((col == 1)?"X" : ( col == -1 ? "O" : "") ) }}
+      {{ ((col == 1)?"O" : ( col == -1 ? "X" : "") ) }}
+    </div>
   </div>
 
 </body>
