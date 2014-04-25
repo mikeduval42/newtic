@@ -29,7 +29,6 @@ $scope.rows = [[0,0,0],[0,0,0],[0,0,0]];
     else {
       alert("Pick Another One or Chuck Norris Will Roundhouse Kick You");
       }
-
     // Win possibilities
     if(Math.abs($scope.rows[0][0] + $scope.rows[0][1] + $scope.rows[0][2]) == 3)
       {$scope.playerWon($scope.rows[0][0]);
@@ -57,18 +56,17 @@ $scope.rows = [[0,0,0],[0,0,0],[0,0,0]];
        win = true;}
     if (clicks === 9 && !win)
         alert("Cats Game Sucka!");
-        //draw = true;
-      //}
   };
-
   // alert winner
   $scope.playerWon = function(player) {
-    // if (draw === true) {
-    //   //alert("Cats Game Sucka!");
-    // }
-    // else {
-    // condition player === 1 value if true("O") : value if false ("X")
-    alert( ((player === 1)?"O" : "X") + " won! ");
-
+    // ternary operator: condition(col == 1) then if value is true "O" else value if false
+    alert( ((player === 1)?"Chuck Norris" : "The World") + " won! ");
+  };
+ $scope.reset = function () {
+    $scope.rows = [[0,0,0],[0,0,0],[0,0,0]];
+    var turn = true;
+    var clicks = 0;
+    var win = false;
+    var draw = false;
   };
 });
