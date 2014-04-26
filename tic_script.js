@@ -5,12 +5,10 @@ gameApp.controller('GameController', function($scope, $firebase){
 
   var playerNum = 1;
 
-
-
       var lastGame;
       // Ask for all existing game info from firebase
       ticTacRef.once('value', function(gamesSnapshot) {
-        clicks = 0;
+        // clicks = 0;
         turn = true;
         win = false;
         // get the actual games data
@@ -35,7 +33,7 @@ gameApp.controller('GameController', function($scope, $firebase){
             // Set a new game on this
             lastGame.set( {
               waiting: false,
-              turn: 0,
+              turn: false,
               clicks: 0,
               win: false,
               draw: false,
@@ -43,7 +41,6 @@ gameApp.controller('GameController', function($scope, $firebase){
             }
             );
             playerNum = 2;
-            // playerNum = 2 turned to turn = false????
           }
           else
           {
@@ -55,81 +52,73 @@ gameApp.controller('GameController', function($scope, $firebase){
         // Attach the last game to what we're up to, converts game so firebase can understand the javascript
         $scope.game = $firebase(lastGame);
       });
-
-
-
 // switches players
   $scope.playerTurn = function(r, c) {
-    if($scope.game.rows[r][c] != 0) {
-      turn = false;
-      // clicks++;
-      // console.log(clicks);
-      // Chuck
-      } else if (turn === true)
+
+
+    if ($scope.game.rows[r][c] === 0) {
+      $scope.game.clicks++;
+      if (turn === true)
       {
-        $scope.game.rows[r][c] = 1;
-        turn = false;
-
-
-
-        // $scope.game.value = 1;
-        // $scope.turn = clicks % 2 == 0;
-    }
+          $scope.game.rows[r][c] = 1;
+          turn = false;
+          // $scope.game.value = 1;
+          // $scope.turn = clicks % 2 == 0;
+      }
     // World
       else
       {
         $scope.game.rows[r][c] = -1;
         turn = true;
-
         // $scope.game.value = -1;
         // $scope.turn = clicks % 2 == 1;
       }
-
-    // else {
-    //   alert("Pick Another One or Chuck Norris Will Roundhouse Kick You");
-    //   }
-
-    $scope.game.$save();
-
+    }
+    else {
+      alert("Pick Another One or Chuck Norris Will Roundhouse Kick You");
+    }
     // Win possibilities
     if(Math.abs($scope.game.rows[0][0] + $scope.game.rows[0][1] + $scope.game.rows[0][2]) == 3)
       {$scope.playerWon($scope.game.rows[0][0]);
-      win = true;}
+      $scope.game.win = true;}
     if(Math.abs($scope.game.rows[1][0] + $scope.game.rows[1][1] + $scope.game.rows[1][2]) == 3)
       {$scope.playerWon($scope.game.rows[1][0]);
-      win = true;}
+      $scope.game.win = true;}
     if(Math.abs($scope.game.rows[2][0] + $scope.game.rows[2][1] + $scope.game.rows[2][2]) == 3)
       {$scope.playerWon($scope.game.rows[2][0]);
-       win = true;}
+       $scope.game.win = true;}
     if(Math.abs($scope.game.rows[0][0] + $scope.game.rows[1][0] + $scope.game.rows[2][0]) == 3)
       {$scope.playerWon($scope.game.rows[0][0]);
-      win = true;}
+      $scope.game.win = true;}
     if(Math.abs($scope.game.rows[0][1] + $scope.game.rows[1][1] + $scope.game.rows[2][1]) == 3)
       {$scope.playerWon($scope.game.rows[0][1]);
-      win = true;}
+      $scope.game.win = true;}
     if(Math.abs($scope.game.rows[0][2] + $scope.game.rows[1][2] + $scope.game.rows[2][2]) == 3)
       {$scope.playerWon($scope.game.rows[0][2]);
-      win = true;}
+      $scope.game.win = true;}
     if(Math.abs($scope.game.rows[0][0] + $scope.game.rows[1][1] + $scope.game.rows[2][2]) == 3)
       {$scope.playerWon($scope.game.rows[0][0]);
-      win = true;}
+      $scope.game.win = true;}
     if(Math.abs($scope.game.rows[0][2] + $scope.game.rows[1][1] + $scope.game.rows[2][0]) == 3)
       {$scope.playerWon($scope.game.rows[0][2]);
-       win = true;}
-    if (clicks === 9 && !win)
+       $scope.game.win = true;}
+    if ($scope.game.clicks === 9 && !$scope.game.win)
         alert("Cats Game Sucka!");
+
+      $scope.game.$save();
   };
   // alert winner
   $scope.playerWon = function(player) {
     // ternary operator: condition(col == 1) then if value is true "O" else value if false
-    alert( ((player === 1)?"Chuck Norris" : "The World") + " won! ");
+    // alert( ((player === 1)?"Chuck Norris" : "The World") + " won! ");
   };
-
  $scope.reset = function () {
     $scope.game.rows = [[0,0,0],[0,0,0],[0,0,0]];
-    var turn = true;
-    var clicks = 0;
-    var win = false;
-    var draw = false;
+    $scope.game.waiting = false;
+    $scope.game.turn = false;
+    $scope.game.clicks = 0;
+    $scope.game.win = false;
+    $scope.game.draw = false;
+    $scope.game.$save();
   };
 });

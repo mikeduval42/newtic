@@ -51,9 +51,15 @@ p {
 }
 .chuckwin {
   background: url("images/chuckwin.gif");
+  background-size: cover;
 }
 .worldwin {
   background: url("images/worldwin.gif");
+  background-size: cover;
+}
+.winner{
+  background: none;
+  background-color: red;
 }
 .newGame {
   height: 40px;

@@ -14,7 +14,7 @@
 <p>It's Chuck Norris vs. the world in the ultimate battle to the death<p>
 <div class="wrapper">
   <div class="clear" x-ng-repeat="x in game.rows track by $index">
-    <div class="board" x-ng-class="{chuck: col === 1, world: col === -1}" x-ng-repeat="col in x track by $index" x-ng-click="playerTurn($parent.$index, $index)">
+    <div class="board" x-ng-class="{chuck: col === 1, world: col === -1, chuckwin: (game.win && game.clicks%2!=0), worldwin: (game.win && game.clicks%2==0)}" x-ng-repeat="col in x track by $index" x-ng-click="playerTurn($parent.$index, $index)">
     </div>
   </div>
 </div>
