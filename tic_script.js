@@ -8,8 +8,7 @@ gameApp.controller('GameController', function($scope, $firebase){
       var lastGame;
       // Ask for all existing game info from firebase
       ticTacRef.once('value', function(gamesSnapshot) {
-        // clicks = 0;
-        turn = true;
+        clicks = 0;
         win = false;
         // get the actual games data
         var games = gamesSnapshot.val();
@@ -27,13 +26,12 @@ gameApp.controller('GameController', function($scope, $firebase){
           console.log("This person's game: " + lastGameKey);
           if(lastGame.waiting)
           {
-            // Currently someone is waiting -- Areg is there and we're Rocky
+            // Currently someone is waiting
             // Grab from Firebase its last game object
             lastGame = ticTacRef.child(lastGameKey);
-            // Set a new game on this
+            // Set a new game with the below set
             lastGame.set( {
               waiting: false,
-              turn: false,
               clicks: 0,
               win: false,
               draw: false,
@@ -44,7 +42,7 @@ gameApp.controller('GameController', function($scope, $firebase){
           }
           else
           {
-            // Make a new game -- As if we're Areg
+            // Make a new game
             lastGame = ticTacRef.push( {waiting: true} );
             playerNum = 1;
           }
@@ -54,24 +52,17 @@ gameApp.controller('GameController', function($scope, $firebase){
       });
 // switches players
   $scope.playerTurn = function(r, c) {
-
-
     if ($scope.game.rows[r][c] === 0) {
       $scope.game.clicks++;
-      if (turn === true)
+      //Chuck
+      if ($scope.game.clicks%2!==0)
       {
           $scope.game.rows[r][c] = 1;
-          turn = false;
-          // $scope.game.value = 1;
-          // $scope.turn = clicks % 2 == 0;
       }
     // World
       else
       {
         $scope.game.rows[r][c] = -1;
-        turn = true;
-        // $scope.game.value = -1;
-        // $scope.turn = clicks % 2 == 1;
       }
     }
     else {
@@ -115,7 +106,7 @@ gameApp.controller('GameController', function($scope, $firebase){
  $scope.reset = function () {
     $scope.game.rows = [[0,0,0],[0,0,0],[0,0,0]];
     $scope.game.waiting = false;
-    $scope.game.turn = false;
+    // $scope.game.turn = false;
     $scope.game.clicks = 0;
     $scope.game.win = false;
     $scope.game.draw = false;
