@@ -51,10 +51,10 @@ p {
 .worldwin {
   background: url("images/worldwins.jpg");
 }
-.winner{
+/*.winner{
   background: none;
   background-color: red;
-}
+}*/
 .newGame {
   height: 40px;
   width: 195px;

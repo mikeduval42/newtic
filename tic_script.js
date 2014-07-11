@@ -87,15 +87,16 @@ gameApp.controller('GameController', function($scope, $firebase){
     if(Math.abs($scope.game.rows[0][2] + $scope.game.rows[1][2] + $scope.game.rows[2][2]) == 3)
       {$scope.playerWon($scope.game.rows[0][2]);
       $scope.game.win = true;}
-    if(Math.abs($scope.game.rows[0][0] + $scope.game.rows[1][1] + $scope.game.rows[2][2]) == 3)
-      {$scope.playerWon($scope.game.rows[0][0]);
-      $scope.game.win = true;}
+    if(Math.abs($scope.game.rows[0][0] + $scope.game.rows[1][1] + $scope.game.rows[2][2]) == 3){
+      $scope.playerWon($scope.game.rows[0][0]);
+      $scope.game.win = true;
+    }
     if(Math.abs($scope.game.rows[0][2] + $scope.game.rows[1][1] + $scope.game.rows[2][0]) == 3)
       {$scope.playerWon($scope.game.rows[0][2]);
        $scope.game.win = true;}
-    if ($scope.game.clicks === 9 && !$scope.game.win)
+    if ($scope.game.clicks === 9 && !$scope.game.win){
         alert("Cats Game Sucka!");
-
+    }
       $scope.game.$save();
   };
   // alert winner

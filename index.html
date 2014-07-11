@@ -7,19 +7,23 @@
   <script src="https://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js"></script>
 
   <script src="tic_script.js"></script>
-  <link href='http://fonts.googleapis.com/css?family=Shojumaru' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Shojumaru' rel='stylesheet' type='text/css'>
 </head>
-<body x-ng-controller="GameController">
-<header>Tic Tac Chuck Norris</header>
-<p>It's Chuck Norris vs. the world in the ultimate battle to the death<p>
-<div class="wrapper">
-  <div class="clear" x-ng-repeat="x in game.rows track by $index">
-    <div class="board" x-ng-class="{chuck: col === 1, world: col === -1, chuckwin: (game.win && game.clicks%2!=0), worldwin: (game.win && game.clicks%2==0)}" x-ng-repeat="col in x track by $index" x-ng-click="playerTurn($parent.$index, $index)">
+  <body x-ng-controller="GameController">
+    <header>Tic Tac Chuck Norris</header>
+    <p>It's Chuck Norris vs. the world in the ultimate battle to the death<p>
+    <div class="wrapper">
+      <div class="clear" x-ng-repeat="x in game.rows track by $index">
+        <div class="board"
+        x-ng-class="{chuck: col === 1, world: col === -1, chuckwin: (game.win && game.clicks%2!=0), worldwin: (game.win && game.clicks%2==0)}"
+        x-ng-class=""
+        x-ng-repeat="col in x track by $index"
+        x-ng-click="playerTurn($parent.$index, $index)">
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-<div class="newGame">
-  <button x-ng-click="reset()">Click to Reset Game</button>
-</div>
-</body>
+    <div class="newGame">
+      <button x-ng-click="reset()">Click to Reset Game</button>
+    </div>
+  </body>
 </html>
