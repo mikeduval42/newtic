@@ -2,4 +2,4 @@ TicTacChuckNorris is a spin on the classic Tic Tac Toe game.  In this version, i
 
 The app was built for my project 1 assignment for General Assembly's Web Development Immersive course. The game is playable by two users on separate devices or by two players on one device.  It utilizes Javascript, Angular, HTML, CSS, and Firebase.
 
-Please checkout the game at https://tictacchucknorris.firebaseapp.com/
+Check out <a href="https://tictacchucknorris.firebaseapp.com/"> TicTacChuckNorris </a>.
