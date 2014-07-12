@@ -39,17 +39,23 @@ p {
 }
 .chuck {
   background: url("images/chuckpunch1.gif");
-  background-size: cover;
+  background-size: contain;
+  height: 140px;
+  background-repeat: no-repeat;
 }
 .world {
   background: url("images/24-hour-geostationary-satellite-animation-loop-Earth.gif");
-  background-size: cover;
+  background-size: contain;
+  height: 140px;
+  background-repeat: no-repeat;
 }
 .chuckwin {
   background: url("images/chuckwins.jpg");
+  height: 145px;
 }
 .worldwin {
   background: url("images/worldwins.jpg");
+  height: 143px;
 }
 /*.winner{
   background: none;
