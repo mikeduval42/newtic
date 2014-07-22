@@ -84,61 +84,44 @@ button {
   }
 
   p {
-    text-align: center;
     font-size: 13px;
     margin-bottom: -5px;
   }
+
   .wrapper {
     width: 310px;
     height: 310px;
-    margin: 0 auto;
     padding-left: 10px;
+  }
 
-  }
-  .clear {
-    clear: both;
-  }
   .board {
     width: 90px;
     height: 90px;
-    float: left;
     border: 3px solid black;
     margin: 2px;
   }
-  .board:hover {
-    background-color: gray;
-    opacity: .5;
-  }
+
   .chuck {
-    background: url("images/chuckpunch1.gif");
-    background-size: contain;
     height: 90px;
-    background-repeat: no-repeat;
   }
+
   .world {
-    background: url("images/24-hour-geostationary-satellite-animation-loop-Earth.gif");
-    background-size: contain;
     height: 90px;
-    background-repeat: no-repeat;
   }
+
   .chuckwin {
-    background: url("images/chuckWins.jpg");
     background-size: contain;
     height: 90px;
   }
+
   .worldwin {
-    background: url("images/worldwins.jpg");
     background-size: contain;
     height: 90px;
   }
+
   button {
-    /*height: 30px;
-    width: 185px;*/
     border: 3px solid black;
   }
-
-
-
 }
 
 
